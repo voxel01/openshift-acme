@@ -1022,6 +1022,7 @@ func (rc *RouteController) sync(ctx context.Context, key string) error {
 				}
 
 				url := "http://" + domain + challengePath
+				time.Sleep(5 * time.Second)
 				err = controllerutils.ValidateExposedToken(url, challengeResponse)
 				if err != nil {
 					klog.Infof("Can't self validate exposed token before accepting the challenge: %v", err)
